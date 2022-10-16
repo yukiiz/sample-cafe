@@ -1,0 +1,359 @@
+@charset "utf-8";
+// ================
+// import
+// ================
+
+//設定用
+@import "./setting/setting";
+
+//mixin
+@import "./mixin/font";
+@import "./mixin/mq";
+
+//リセットCSS
+@import "./base/reset";
+@import "./base/base";
+
+.sec-inner {
+	margin: 0 auto;
+	max-width: $maxW;
+	padding: 72px 16px 82px;
+	width: 100%;
+	@include maxsp {
+		padding: 28px 16px 75px;
+	}
+}
+.sec-inner_full {
+	width: 100%;
+}
+.sec-img {
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 11.7%;
+	position: relative;
+	width: 100%;
+	@include mintb {
+		align-items: center;
+		background-attachment: fixed;
+		background-position: center;
+		display: flex;
+		justify-content: center;
+	}
+	@include maxsp {
+		height: 95px;
+	}
+}
+.sec-tit {
+	color: white;
+}
+.under-line {
+	position: relative;
+	&::after {
+		background: $sc;
+		bottom: -21px;
+		content: "";
+		height: 6px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+		@include maxsp {
+			bottom: -8px;
+		}
+	}
+}
+
+/*ーーーーーーーーーー
+.header
+ーーーーーーーーーーー*/
+.header {
+	line-height: 1;
+	position: absolute;
+	transition: all 1s ease-in;
+	width: 100%;
+	z-index: 999;
+	-webkit-transform: translateZ(0);
+	&-inner {
+		height: 55px;
+		margin: 0 auto;
+		padding: 0 40px;
+		position: relative;
+		width: 100%;
+		&:after {
+			clear: both;
+			content: "";
+			display: block;
+		}
+	}
+	&-nav {
+		margin: 0 0 0 auto;
+		width: 225px;
+		ul {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			li {
+				a {
+					color: white;
+					display: block;
+					line-height: 55px;
+					filter: drop-shadow(1px 1px 2px #121212);
+					position: relative;
+					transition: all 0.6s ease 0s;
+					@include minpc {
+						&::before {
+							background: white;
+							bottom: 15px;
+							content: "";
+							height: 3px;
+							left: 0;
+							position: absolute;
+							transition: width 0.3s ease;
+							width: 0;
+						}
+						&:hover,
+						&.current {
+							opacity: 1;
+							&::before {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* Fixed */
+.fixed {
+	background: rgba(255, 255, 255, 0.7);
+	position: fixed;
+	transition: all 1s ease-in;
+	@include maxtb {
+		background: rgba(255, 255, 255, 0.9);
+		.header-nav a {
+			color: $fc;
+		}
+	}
+}
+
+/*ーーーーーーーーーー
+.footer
+ーーーーーーーーーーー*/
+.footer {
+	padding-bottom: 15px;
+	padding-top: 85px;
+	@include maxsp {
+		padding-top: 55px;
+	}
+	p {
+		@include fs(10);
+	}
+}
+
+/*ーーーーーーーーーー
+.mv
+ーーーーーーーーーーー*/
+.mv {
+	background-image: url(../img/mainvisual.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 46vw;
+	margin: 0 auto 20px;
+	min-height: 100vh;
+	position: relative;
+	width: 100%;
+	@include maxsp {
+		margin-bottom: 10px;
+	}
+	&-inner {
+		h1 {
+			@include fs(70);
+			color: white;
+			left: 25%;
+			line-height: 80px;
+			position: absolute;
+			text-align: left;
+			text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+			top: 43%;
+			@include maxtb {
+				@include fs(50);
+				left: 19%;
+			}
+			@include maxsp {
+				@include fs(45);
+				line-height: 50px;
+				top: 56%;
+			}
+		}
+	}
+}
+
+/*ーーーーーーーーーー
+.menu
+ーーーーーーーーーーー*/
+.menu {
+	&-img {
+		background-image: url(../img/menu.jpg);
+	}
+	.flex-left,
+	.flex-right {
+		padding: 15px 0 15px 20px;
+		@include maxsp {
+			padding: 0;
+		}
+	}
+	&-list {
+		flex-wrap: wrap;
+		margin: 80px 0 60px;
+		@include maxsp {
+			flex-direction: row;
+			margin: 23px 0 11px;
+		}
+		dt,
+		dd {
+			color: $fc;
+			display: inline-block;
+		}
+		dt {
+			border-bottom: dotted 1px #000;
+			margin: 0 15px 25.5px 35px;
+			padding-top: 2px;
+			width: 74%;
+			@include maxsp {
+				margin: 0 0 27.5px;
+				width: 87%;
+			}
+		}
+		dd {
+			padding-top: 7px;
+			width: 15%;
+			@include maxsp {
+				text-align: right;
+				width: 13%;
+			}
+		}
+	}
+}
+
+/*ーーーーーーーーーー
+.about
+ーーーーーーーーーーー*/
+.about {
+	&-img {
+		background-image: url(../img/about.jpg);
+	}
+	&-tit {
+		margin-bottom: 98px;
+		padding-top: 5px;
+		@include maxsp {
+			margin-bottom: 30px;
+			padding-top: 0;
+		}
+	}
+	.box {
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 0 auto 18px;
+		max-width: 930px;
+		@include maxsp {
+			margin: 0 10px 25px;
+		}
+	}
+	.item {
+		margin-bottom: 30px;
+		width: 47%;
+		@include maxsp {
+			margin-bottom: 9px;
+			width: 100%;
+		}
+		p {
+			color: $fc;
+			line-height: 1.98;
+		}
+	}
+	.link {
+		height: 50px;
+		line-height: 50px;
+		margin: 0 auto 68px;
+		position: relative;
+		width: 160px;
+		a {
+			color: $fc;
+		}
+		&::after,
+		&::before,
+		a::after,
+		a::before {
+			background-color: $sc;
+			content: "";
+			display: block;
+			position: absolute;
+			transition: all 0.3s ease;
+			z-index: 10;
+			-webkit-transition: all 0.3s ease;
+		}
+		&::after {
+			height: 2px;
+			left: -1px;
+			top: -1px;
+			width: 20%;
+		}
+		&::before {
+			bottom: -1px;
+			height: 2px;
+			right: -1px;
+			width: 20%;
+		}
+		a::after {
+			height: 50%;
+			left: -1px;
+			top: -1px;
+			width: 2px;
+		}
+		a::before {
+			bottom: -1px;
+			height: 50%;
+			right: -1px;
+			width: 2px;
+		}
+		&:hover {
+			&::after,
+			&::before {
+				width: calc(100% + 2px);
+			}
+			a {
+				&::after,
+				&::before {
+					height: calc(100% + 2px);
+				}
+			}
+		}
+		@include maxsp {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+/*ーーーーーーーーーー
+.location
+ーーーーーーーーーーー*/
+.location {
+	&-img {
+		background-image: url(../img/location.jpg);
+		@include maxsp {
+			background-position: center bottom;
+		}
+	}
+	&-info {
+		p {
+			color: $fc;
+			font-family: Arial, Helvetica, sans-serif;
+			line-height: 1.6;
+			margin-bottom: 8px;
+		}
+	}
+}
